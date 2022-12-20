@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class CarDaoReal implements CarDao {
+public class CarDaoImpl implements CarDao {
     private int count = 0;
     private final List<Car> cars = new ArrayList<>();
 
@@ -22,9 +22,6 @@ public class CarDaoReal implements CarDao {
 
     @Override
     public List<Car> getCars(int count) {
-        if (count == 0) {
-            return cars;
-        }
         return cars.stream().limit(count).collect(Collectors.toList());
     }
 }
